@@ -7,9 +7,13 @@ import { useCart } from "../context/CartContext";
 const Pay = () => {
   const { state, dispatch } = useCart();
 
+  const toggleMenu = ( ) => {
+    console.log(state)
+};
+
   return (
     <div>
-      <h1>Checkout</h1>
+      <h1 onClick={toggleMenu}>Checkout</h1>
       {state.cart.length === 0 ? (
         <p>Your cart is empty</p>
       ) : (

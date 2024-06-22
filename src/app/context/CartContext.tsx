@@ -2,12 +2,6 @@
 
 import { createContext, useContext, useReducer, ReactNode } from 'react';
 
-interface CartItem {
-  id: string;
-  name: string;
-  price: number;
-  quantity: number;
-}
 
 interface CartState {
   cart: CartItem[];

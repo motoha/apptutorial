@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import ProductFilter from '../components/Filter/ProductFilter';
 import ProductList from '../components/Filter/Productist';
-import { useCart } from '../context/CartContext';
+ 
  
 
 type Product = {
@@ -20,12 +20,14 @@ const initialProducts: Product[] = [
     { id: 4, name: 'Product 4', category: 'Clothing', brand: 'Brand A', price: 70 , image :"/images/1.jpg" },
     // Add more products as needed
 ];
-const { state, dispatch } = useCart();
+ 
 const categories = ['Electronics', 'Clothing'];
 const brands = ['Brand A', 'Brand B', 'Brand C'];
 
 const Home = () => {
     const [filteredProducts, setFilteredProducts] = useState<Product[]>(initialProducts);
+
+    
 
     const handleFilterChange = (filters: any) => {
         let filtered = initialProducts;

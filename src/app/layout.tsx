@@ -9,6 +9,7 @@ import { CartProvider } from "./components/Shop/shop_context";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import ReactQueryProvider from "./providers/ReactQueryProvider";
 import { CartProviderx } from "./context/CartContext";
+import { ContextProvider } from "./context/AppContext";
  
 
 const inter = Inter({ subsets: ["latin"] });
@@ -23,16 +24,18 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  
   return (
     <html lang="en">
 
 <ReactQueryProvider>
       <body  >
+      <ContextProvider>
       <CartProviderx> 
         <Header />
         {children}
         <Fotter />
-      </CartProviderx>
+      </CartProviderx> </ContextProvider>
         </body>
         </ReactQueryProvider>   
     </html>

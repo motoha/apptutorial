@@ -1,6 +1,6 @@
 // components/ProductFilter.tsx
 import React, { useState } from 'react';
-import Slider from 'react-slider';
+import ReactSlider from 'react-slider';
 
 type ProductFilterProps = {
     categories: string[];
@@ -13,6 +13,8 @@ const ProductFilter: React.FC<ProductFilterProps> = ({ categories, brands, onFil
     const [selectedBrands, setSelectedBrands] = useState<string[]>([]);
     const [priceRange, setPriceRange] = useState<[number, number]>([0, 1000]);
 
+
+    
     const handleCategoryChange = (category: string) => {
         setSelectedCategory(category);
         onFilterChange({ category, selectedBrands, priceRange });
@@ -61,7 +63,7 @@ const ProductFilter: React.FC<ProductFilterProps> = ({ categories, brands, onFil
             ))}
 
             <h3>Price Range</h3>
-            <Slider
+            <ReactSlider
                 value={priceRange}
                 min={0}
                 max={1000}
