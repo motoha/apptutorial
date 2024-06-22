@@ -6,6 +6,8 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion , AnimatePresence} from 'framer-motion';
 import Link from 'next/link';
+import { useCart } from '@/app/context/CartContext';
+ 
  
 interface CartItem {
     id: number
@@ -15,7 +17,7 @@ interface CartItem {
   }
 const Header = () => {
 
-   
+  const { cartCount } = useCart();
     const [isCartOpen, setIsCartOpen] = useState(false)
     const [cartItems, setCartItems] = useState<CartItem[]>([
       { id: 1, name: 'Product 1', price: 10, quantity: 2 },
@@ -140,26 +142,28 @@ const Header = () => {
                                 animate={{ opacity: 1, y: 0 }}
                                 className="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md"
                             >
-                                <a href="#" className="block px-4 py-2 hover:bg-gray-100">Product 1</a>
-                                <a href="#" className="block px-4 py-2 hover:bg-gray-100">Product 2</a>
+                                <Link href="/catalog" className="block px-4 py-2 hover:bg-gray-100">Product List</Link>
+                                <Link href="/cart" className="block px-4 py-2 hover:bg-gray-100">Cart</Link>
                                 <a href="#" className="block px-4 py-2 hover:bg-gray-100">Product 3</a>
                             </motion.div>
                         )}
                     </div>
-                    <a href="/filter" className="hover:text-gray-700">Contact</a>
+                    <Link href="/filter" className="hover:text-gray-700">Contact</Link>
+                    <Link href="/cart" className="hover:text-gray-700">Cart</Link>
+                    <Link href="/catalog" className="hover:text-gray-700">Cata</Link>
                 </nav>
                 <button 
           onClick={toggleCart}
           className="bg-blue-500 text-white px-4 py-2 rounded"
         >
-          Cart ({cartItems.reduce((sum, item) => sum + item.quantity, 0)})
+         Cart    ({cartItems.reduce((sum, item) => sum + item.quantity, 0)})
         </button>
                 <button onClick={() => setMobileMenuOpen(!isMobileMenuOpen)} className="md:hidden">
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
                 </button>
-                
+                <Link href= "/pay" >   <span>Cart ({cartCount})</span>  </Link>   
         <button
           
           className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded"
