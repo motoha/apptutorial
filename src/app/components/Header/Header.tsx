@@ -158,8 +158,8 @@ const Header = () => {
                                 animate={{ opacity: 1, y: 0 }}
                                 className="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md"
                             >
-                                <a href="#" className="block px-4 py-2 hover:bg-gray-100">Service 1</a>
-                                <a href="#" className="block px-4 py-2 hover:bg-gray-100">Service 2</a>
+                                <Link href="/datatable" className="block px-4 py-2 hover:bg-gray-100">Data Table</Link>
+                                <Link href="/detail"className="block px-4 py-2 hover:bg-gray-100">Product detail</Link>
                                 <a href="#" className="block px-4 py-2 hover:bg-gray-100">Service 3</a>
                             </motion.div>
                         )}
@@ -345,20 +345,20 @@ const Header = () => {
                             )}
                         </div>
                         <div className="relative">
-                            <button onClick={() => toggleMenu('mobile-products')} className="block w-full text-left px-4 py-2 hover:bg-gray-100">Products</button>
+                            <button onClick={() => toggleMenu('mobile-products')} className="block w-full text-left px-4 py-2 hover:bg-gray-100">Productsx</button>
                             {openMenu === 'mobile-products' && (
                                 <motion.div
                                     initial={{ opacity: 0, y: -20 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     className="pl-4"
                                 >
-                                    <a href="#" className="block px-4 py-2 hover:bg-gray-100">Product 1</a>
+                                    <Link href="/datatable" className="block px-4 py-2 hover:bg-gray-100">Data Table</Link>
                                     <a href="#" className="block px-4 py-2 hover:bg-gray-100">Product 2</a>
                                     <a href="#" className="block px-4 py-2 hover:bg-gray-100">Product 3</a>
                                 </motion.div>
                             )}
                         </div>
-                        <a href="#" className="block px-4 py-2 hover:bg-gray-100">Contact</a>
+                        <a href="#" className="block px-4 py-2 hover:bg-gray-100">Contactx</a>
                     </nav>
                 </motion.div>
             )}

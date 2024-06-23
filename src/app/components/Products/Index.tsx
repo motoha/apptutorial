@@ -1,6 +1,7 @@
 
 "use client"
 
+import { fetchProductById } from '@/app/api/detail';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
  
@@ -10,6 +11,9 @@ const  Products: React.FC = (props) => {
   const [data, setData] = useState<DataItem[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+
+  const [product, setProduct] = useState<DataItem | null>(null);
+  
 
   // useEffect(() => {
   //   const fetchData = async () => {
