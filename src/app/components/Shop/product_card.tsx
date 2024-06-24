@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useEffect, useState } from 'react';
-import { useCart } from './shop_context';
+import { useCartx } from './shop_context';
 // import { Product } from './types';
  
 import { Product  } from './product_interface';
@@ -11,10 +11,10 @@ import Link from 'next/link';
 
  
 const PCard: React.FC = () => {
-  const { dispatch } = useCart();
-  const showToast = () => {
-    toast.success('Button clicked successfully!');
-  };
+  const { dispatch } = useCartx();
+  // const showToast = () => {
+  //   toast.success('Button clicked successfully!');
+  // };
   const [proddata, proddatachange] = useState<Product []>([]);
    
 

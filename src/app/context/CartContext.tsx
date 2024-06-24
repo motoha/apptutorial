@@ -30,6 +30,7 @@ export const useCart = () => {
 const cartReducer = (state: CartState, action: CartAction): CartState => {
   switch (action.type) {
     case 'ADD_TO_CART': {
+     
       const existingItem = state.cart.find(item => item.id === action.item.id);
       if (existingItem) {
         return {
@@ -40,6 +41,7 @@ const cartReducer = (state: CartState, action: CartAction): CartState => {
               : item
           ),
         };
+        
       }
       return { ...state, cart: [...state.cart, action.item] };
     }

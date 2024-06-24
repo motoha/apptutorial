@@ -1,12 +1,12 @@
 "use client"
 
 import React from 'react';
-import { useCart } from './shop_context';
+import { useCartx } from './shop_context';
  
 import { Toaster, toast } from 'react-hot-toast';
  
 const Cart: React.FC = () => {
-  const { state, dispatch } = useCart();
+  const { state, dispatch } = useCartx();
 
   const removeFromCart = (productId: number) => {
     dispatch({ type: 'REMOVE_FROM_CART', productId });

@@ -1,19 +1,22 @@
 'use client';
 
+import { useRouter } from "next/navigation";
 import { useCart } from "../context/CartContext";
 
  
 
 const Pay = () => {
   const { state, dispatch } = useCart();
+  const router = useRouter()
 
   const toggleMenu = ( ) => {
     console.log(state)
+    router.push('/checkout')
 };
 
   return (
-    <div>
-      <h1 onClick={toggleMenu}>Checkout</h1>
+    <div className="mx-10 my-10">
+      <h1 className="cursor-pointer" onClick={toggleMenu}>Checkout</h1>
       {state.cart.length === 0 ? (
         <p>Your cart is empty</p>
       ) : (

@@ -5,7 +5,7 @@ import { useCart } from '../context/CartContext';
 import Link from 'next/link';
 import { useStateContext } from '../context/AppContext';
 import NotFound from '../notfound/page';
- 
+import { Toaster, toast } from 'react-hot-toast';
 
 const Catalog = () => {
  
@@ -55,8 +55,9 @@ const Catalog = () => {
   if (error) return <p>{error}</p>;
 
   
-if(token)  return(
-    
+// if(token) 
+ return(
+  <>
     <div className="  bg-gray-100 flex flex-col justify-center">
       <div className="relative m-3 flex flex-wrap mx-auto justify-center">
     
@@ -87,7 +88,10 @@ if(token)  return(
               </svg>
             </div>
              <Link href={`/products/${item.id}`}>View</Link>
-             <button onClick={() => dispatch({ type: 'ADD_TO_CART', item: item })}> Add </button>
+             <button onClick={() => {
+              dispatch({ type: 'ADD_TO_CART', item: item })
+              toast('Added to cart' , { icon: '👏',});
+             }}> Add </button>
           </div>
         </div>
     
@@ -98,14 +102,20 @@ if(token)  return(
     
       </div>
     </div>
-     
+        <Toaster
+        position="bottom-right"
+        
+        reverseOrder={false}
+      />
+
+    </>
     );
 
-    return (
-      <div>
-        <NotFound />
-      </div>
-    );
+    // return (
+    //   <div>
+    //     <NotFound />
+    //   </div>
+    // );
 };
 
 export default Catalog;
